@@ -1,0 +1,11 @@
+C:\Users\metal\source\repos\Lab2\Lab2\bin\Release\Lab2.exe.config
+C:\Users\metal\source\repos\Lab2\Lab2\bin\Release\Lab2.exe
+C:\Users\metal\source\repos\Lab2\Lab2\bin\Release\Lab2.pdb
+C:\Users\metal\source\repos\Lab2\Lab2\obj\Release\Lab2.csproj.CoreCompileInputs.cache
+C:\Users\metal\source\repos\Lab2\Lab2\obj\Release\Lab2.exe
+C:\Users\metal\source\repos\Lab2\Lab2\obj\Release\Lab2.pdb
+C:\Users\metal\source\repos\Lab2\Lab2\obj\Release\Lab2.csprojAssemblyReference.cache
+C:\Users\metal\source\repos\Lab2\Lab2\bin\Release\Serwer.dll
+C:\Users\metal\source\repos\Lab2\Lab2\bin\Release\Serwer.pdb
+C:\Users\metal\source\repos\Lab2\Lab2\bin\Release\Serwer.dll.config
+C:\Users\metal\source\repos\Lab2\Lab2\obj\Release\Lab2.csproj.CopyComplete
