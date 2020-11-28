@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Net.Sockets;
 
 namespace GUI_projektIO
 {
@@ -18,7 +20,6 @@ namespace GUI_projektIO
        
         public Form2()
         {
-
             //trza pobrać imię i nazwisko z banku
             name = "TESTOWY";
             InitializeComponent();
@@ -26,22 +27,32 @@ namespace GUI_projektIO
             moneyText.Hide(); //ukrywamy pole to wpisywania pieniędzy
             actionOutButton.Hide();//i przycisk od akcji
             actionInButton.Hide();
-            confirmation.Hide(); //i potwierdzenie
+           //confirmation.Hide(); //i potwierdzenie
+            back.Hide();
             this.accBalance = 777;//testowe
 
+
+            //TESTOWE POŁĄCZENIE CZEŚĆ 2!!!!!!!!
+            if (connection.client.Connected)
+            {
+                
+                NetworkStream stream = connection.client.GetStream();
+                Byte[] data = System.Text.Encoding.ASCII.GetBytes("maslo");
+                stream.Write(data, 0, data.Length);
+                data = new Byte[256];
+                String responseData = String.Empty;
+                Int32 bytes = stream.Read(data, 0, data.Length);
+                responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+                Console.WriteLine("Received: {0}", responseData);
+            }
 
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
+            connection.client.Close();
             this.Close();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void check_Click(object sender, EventArgs e)
         {
             checkBalance();            
@@ -54,6 +65,7 @@ namespace GUI_projektIO
             cashOut.Hide();
             check.Hide();
             balance.Hide();
+            back.Show();
             moneyText.Show();
             actionOutButton.Show();
 
@@ -64,9 +76,8 @@ namespace GUI_projektIO
         {
             int m = Int32.Parse(moneyText.Text);
             this.accBalance =accBalance-m;
-            confirmation.Text = String.Format("Pomyślnie wypłacono pieniądze");
-            confirmation.Show();
             checkBalance();
+            operationOutConfrimation();
             textLabel1.Show();
             cashIn.Show();
             cashOut.Show();
@@ -74,34 +85,64 @@ namespace GUI_projektIO
             balance.Show();
             moneyText.Hide(); 
             actionOutButton.Hide();
-
-        }
-        private void actionInButton_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void moneyText_TextChanged(object sender, EventArgs e)
-        {
+            back.Hide();
 
         }
 
-        private void cashInButton_Click(object sender, EventArgs e)
-        {
-
-        }
         private void checkBalance()
         {
+            
             balance.Text = String.Format("Stan twojego konta w banku wynosi {0}$", accBalance);
+            var t = new Timer();
+            t.Interval = 1500; // 1,5 sekundy
+            balance.Show();
+            t.Tick += (s, e) =>
+            {
+                balance.Hide();
+                t.Stop();
+            };
+            t.Start();
+           
+        }
+        private void operationInConfrimation()
+        {
+            confirmation.Text = String.Format("Pomyślnie wpłacono pieniądze");
+            confirmation.Show();
+            var t = new Timer();
+            t.Interval = 1500; // 1,5 sekundy
+            t.Tick += (s, e) =>
+            {
+                confirmation.Hide();
+                t.Stop();
+            };
+            t.Start();
+
+        }
+        private void operationOutConfrimation()
+        {
+            confirmation.Text = String.Format("Pomyślnie wypłacono pieniądze");
+            confirmation.Show();
+            var t = new Timer();
+            t.Interval = 1500; // 1,5 sekundy
+            t.Tick += (s, e) =>
+            {
+                confirmation.Hide();
+                t.Stop();
+            };
+            t.Start();
+
         }
 
         private void cashIn_Click(object sender, EventArgs e)
         {
+            
             textLabel1.Hide();
             cashIn.Hide();
             cashOut.Hide();
             check.Hide();
             balance.Hide();
             moneyText.Show();
+            back.Show();
             actionInButton.Show();
         }
 
@@ -110,8 +151,6 @@ namespace GUI_projektIO
 
             int m = Int32.Parse(moneyText.Text);
             this.accBalance = accBalance + m;
-            confirmation.Text = String.Format("Pomyślnie wpłacono pieniądze");
-            confirmation.Show();
             checkBalance();
             textLabel1.Show();
             cashIn.Show();
@@ -120,7 +159,21 @@ namespace GUI_projektIO
             balance.Show();
             moneyText.Hide();
             actionInButton.Hide();
+            back.Hide();
+            operationInConfrimation();
 
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            back.Hide();
+            textLabel1.Show();
+            cashIn.Show();
+            cashOut.Show();
+            check.Show();
+            moneyText.Hide();
+            actionInButton.Hide();
+            actionOutButton.Hide();
         }
     }
 }

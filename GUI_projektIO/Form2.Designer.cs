@@ -40,6 +40,7 @@ namespace GUI_projektIO
             this.confirmation = new System.Windows.Forms.Label();
             this.cashIn = new System.Windows.Forms.Button();
             this.actionInButton = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // helloLabel
@@ -101,7 +102,6 @@ namespace GUI_projektIO
             this.balance.Name = "balance";
             this.balance.Size = new System.Drawing.Size(0, 29);
             this.balance.TabIndex = 6;
-            this.balance.Click += new System.EventHandler(this.label1_Click);
             // 
             // actionOutButton
             // 
@@ -150,12 +150,23 @@ namespace GUI_projektIO
             this.actionInButton.UseVisualStyleBackColor = true;
             this.actionInButton.Click += new System.EventHandler(this.actionInButton_Click_1);
             // 
+            // back
+            // 
+            this.back.Location = new System.Drawing.Point(401, 223);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(75, 23);
+            this.back.TabIndex = 14;
+            this.back.Text = "Cofnij";
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.actionInButton);
             this.Controls.Add(this.cashIn);
             this.Controls.Add(this.confirmation);
@@ -187,5 +198,6 @@ namespace GUI_projektIO
         private System.Windows.Forms.Label confirmation;
         private System.Windows.Forms.Button cashIn;
         private System.Windows.Forms.Button actionInButton;
+        private System.Windows.Forms.Button back;
     }
 }

@@ -39,7 +39,7 @@ namespace GUI_projektIO
             // 
             // loginText
             // 
-            this.loginText.Location = new System.Drawing.Point(255, 170);
+            this.loginText.Location = new System.Drawing.Point(44, 12);
             this.loginText.Name = "loginText";
             this.loginText.Size = new System.Drawing.Size(100, 20);
             this.loginText.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace GUI_projektIO
             // 
             // passwordText
             // 
-            this.passwordText.Location = new System.Drawing.Point(255, 197);
+            this.passwordText.Location = new System.Drawing.Point(44, 39);
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '*';
             this.passwordText.Size = new System.Drawing.Size(100, 20);
@@ -55,7 +55,7 @@ namespace GUI_projektIO
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(268, 223);
+            this.loginButton.Location = new System.Drawing.Point(57, 63);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 2;
@@ -66,26 +66,24 @@ namespace GUI_projektIO
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
-            this.labelLogin.Location = new System.Drawing.Point(214, 173);
+            this.labelLogin.Location = new System.Drawing.Point(3, 15);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(33, 13);
             this.labelLogin.TabIndex = 3;
             this.labelLogin.Text = "Login";
-            this.labelLogin.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(211, 200);
+            this.labelPassword.Location = new System.Drawing.Point(2, 42);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(36, 13);
             this.labelPassword.TabIndex = 4;
             this.labelPassword.Text = "Hasło";
-            this.labelPassword.Click += new System.EventHandler(this.labelPassword_Click);
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(722, 425);
+            this.exitButton.Location = new System.Drawing.Point(57, 92);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 5;
@@ -97,7 +95,7 @@ namespace GUI_projektIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(186, 127);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);
