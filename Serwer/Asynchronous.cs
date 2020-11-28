@@ -77,19 +77,19 @@ namespace Serwer
         {
 
             byte[] buffer = new byte[Buffer_size];
+            byte[] msg = Encoding.ASCII.GetBytes(message);
+            stream.Write(msg, 0, msg.Length);
 
-
-                while (true)
+            while (true)
 
                 {
                 try
                 {
-                    byte[] msg = Encoding.ASCII.GetBytes(message);
-                    stream.Write(msg, 0, msg.Length);
                     stream.Read(buffer, 0,Buffer_size); ///odczyt hasla
                     string reply = Encoding.ASCII.GetString(buffer);
                     var reply_letters = new String(reply.Where(Char.IsLetter).ToArray()); /// zamiana bajtów na stringa z samymi literami
                     Array.Clear(buffer, 0, buffer.Length);
+                    if (reply_letters == "") continue; ///sprawdzenie czy wiadomosc nie jest /r/n/0/0/0/...
                     if (passwd == reply_letters)
                     {
                         byte[] msg2 = Encoding.ASCII.GetBytes(message2);  ///wiadomość kończąca
@@ -99,6 +99,7 @@ namespace Serwer
                     }
                     else
                     {
+                        
                         byte[] msg3 = Encoding.ASCII.GetBytes(message3);  ///wiadomość kończąca
                         stream.Write(msg3, 0, msg3.Length);
                     }
