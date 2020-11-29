@@ -63,6 +63,7 @@ namespace Serwer
         {
             TcpClient client = (TcpClient)ar.AsyncState;
             client.Close();
+            db.Write2DataBase();
             // sprzątanie
 
         }
@@ -79,9 +80,9 @@ namespace Serwer
                 {
                     stream.Read(buffer, 0,Buffer_size); 
                     string communicate = Encoding.ASCII.GetString(buffer);
-                    var communicate_letters = new String(communicate.Where(Char.IsLetter).ToArray()); /// zamiana bajtów na stringa z samymi literami do sprawdzenia
+                    //var communicate_letters = new String(communicate.Where(Char.IsLetter).ToArray()); /// zamiana bajtów na stringa z samymi literami do sprawdzenia
                     Array.Clear(buffer, 0, buffer.Length);
-                    if (communicate_letters == "") continue; ///sprawdzenie czy wiadomosc nie jest /r/n/0/0/0/...
+                    //if (communicate_letters == "") continue; ///sprawdzenie czy wiadomosc nie jest /r/n/0/0/0/...
                     string reply = cs.AnalysingCommunicate(communicate);
                     byte[] msg = Encoding.ASCII.GetBytes(reply);  ///wiadomość zwrotna
                     stream.Write(msg, 0, msg.Length);
@@ -103,7 +104,7 @@ namespace Serwer
             //transmission starts within the accept function
 
             AcceptClient();
-            db.Write2DataBase();
+            
 
         }
 

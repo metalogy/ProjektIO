@@ -9,7 +9,7 @@ namespace Serwer
 {
     class CommunicationSupport
     {
-        private static DataBase _db = new DataBase();
+        //private static DataBase _db = new DataBase();
         private string login;
         public string AnalysingCommunicate(string communicate)
         {
@@ -30,14 +30,14 @@ namespace Serwer
                         return feedback;
                     }
                 case "2":
-                    feedback = _db.ReadBalance(this.login).ToString();
+                    feedback = ServerEchoAPM.db.ReadBalance(this.login).ToString();
                     return feedback;
                 case "3":
-                    _db.EditBalance(this.login, (-1*Int32.Parse(components[1])));
+                    ServerEchoAPM.db.EditBalance(this.login, (-1*Int32.Parse(components[1])));
                     feedback = "1";
                     return feedback;
                 case "4":
-                    _db.EditBalance(this.login, (1 * Int32.Parse(components[1])));
+                    ServerEchoAPM.db.EditBalance(this.login, (1 * Int32.Parse(components[1])));
                     feedback = "1";
                     return feedback;
                 default:
