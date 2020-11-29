@@ -40,8 +40,6 @@ namespace GUI_projektIO
             var form2 = new Form2();
             if (connection.client.Connected)
             {
-                int a=connection.sendLoginCredentials(login, this.password);
-
                 if (connection.sendLoginCredentials(login, this.password)==1) //dane logowania poprawne
                 {
                     form2.Show();
