@@ -13,20 +13,15 @@ namespace GUI_projektIO
         public static TcpClient client = new TcpClient("127.0.0.1", 3000);
         public static int sendLoginCredentials(String login, String password)
         {
-             NetworkStream stream = connection.client.GetStream();
-             String credentials  = String.Format("1:{0}:{1}",login,password); //login 1 szą operacją
-             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
-             stream.Write(data, 0, data.Length);
-             Console.WriteLine("Send credentials");
-             data = new Byte[256];
-             Int32 bytes = stream.Read(data, 0, data.Length);
-             int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
-             return responseData;
-            /*if (password == "xd")
-            {
-                return 1;
-            }
-            return 0;*/
+            NetworkStream stream = connection.client.GetStream();
+            String credentials = String.Format("1:{0}:{1}:", login, password); //login 1 szą operacją
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
+            stream.Write(data, 0, data.Length);
+            Console.WriteLine("Send credentials");
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
+            return responseData;
         }
         public static int checkBalance()
         {
@@ -43,7 +38,7 @@ namespace GUI_projektIO
         public static int cashOut(int amount)
         {
             NetworkStream stream = connection.client.GetStream();
-            String credentials = String.Format("3:{0}",amount); //3:wypłata
+            String credentials = String.Format("3:{0}", amount); //3:wypłata
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Send cash out request");

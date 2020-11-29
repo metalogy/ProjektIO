@@ -20,8 +20,6 @@ namespace GUI_projektIO
         public Form1()
         {
             InitializeComponent();
-            //loginText.Hide();
-            //loginText.Show();
             failedLogin.Hide();
         }
 
@@ -40,7 +38,9 @@ namespace GUI_projektIO
             var form2 = new Form2();
             if (connection.client.Connected)
             {
-                if (connection.sendLoginCredentials(login, this.password)==1) //dane logowania poprawne
+                //int a=connection.sendLoginCredentials(login, this.password);
+
+                if (connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
                 {
                     form2.Show();
                     Hide(); //zamknięcie zamiast ukrycia??"?

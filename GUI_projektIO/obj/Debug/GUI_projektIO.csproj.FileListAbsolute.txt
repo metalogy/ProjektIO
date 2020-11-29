@@ -1,11 +1,10 @@
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\bin\Debug\GUI_projektIO.exe.config
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\bin\Debug\GUI_projektIO.exe
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\bin\Debug\GUI_projektIO.pdb
-C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.csprojAssemblyReference.cache
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.Form1.resources
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.Properties.Resources.resources
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.csproj.GenerateResource.cache
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.csproj.CoreCompileInputs.cache
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.exe
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.pdb
-C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.exit.resources
+C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.Form2.resources

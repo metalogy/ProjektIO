@@ -17,20 +17,18 @@ namespace GUI_projektIO
         protected String name;
         protected String surname;
         protected int accBalance;
-       
+
         public Form2()
         {
-           
-            name = Form1.login; //chwilowe
+            //trza pobrać imię i nazwisko z banku
+
+            name = Form1.login;
             InitializeComponent();
             helloLabel.Text = String.Format("Witaj w Banku {0}", name);
             moneyText.Hide(); //ukrywamy pole to wpisywania pieniędzy
             actionOutButton.Hide();//i przycisk od akcji
             actionInButton.Hide();
-           //confirmation.Hide(); //i potwierdzenie
             back.Hide();
-           // this.accBalance = 777;//testowe
-
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace GUI_projektIO
         }
         private void check_Click(object sender, EventArgs e)
         {
-            checkBalance();            
+            checkBalance();
         }
 
         private void cashOut_Click(object sender, EventArgs e)
@@ -53,13 +51,15 @@ namespace GUI_projektIO
             back.Show();
             moneyText.Show();
             actionOutButton.Show();
+
+
         }
 
         private void actionOutButton_Click(object sender, EventArgs e)
         {
             int m = Int32.Parse(moneyText.Text);
             //this.accBalance =accBalance-m;
-            if(connection.cashOut(m)==1)
+            if (connection.cashOut(m) == 1)
             {
                 Console.WriteLine("Pomyśnie wypłacono");
             }
@@ -75,9 +75,10 @@ namespace GUI_projektIO
             cashOut.Show();
             check.Show();
             balance.Show();
-            moneyText.Hide(); 
+            moneyText.Hide();
             actionOutButton.Hide();
             back.Hide();
+
         }
 
         private void checkBalance()
@@ -93,7 +94,7 @@ namespace GUI_projektIO
                 t.Stop();
             };
             t.Start();
-           
+
         }
         private void operationInConfrimation()
         {
@@ -126,7 +127,7 @@ namespace GUI_projektIO
 
         private void cashIn_Click(object sender, EventArgs e)
         {
-            
+
             textLabel1.Hide();
             cashIn.Hide();
             cashOut.Hide();
