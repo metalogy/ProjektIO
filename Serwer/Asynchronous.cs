@@ -14,6 +14,7 @@ using System.Text;
 
 
 
+
 namespace Serwer
 
 {
@@ -21,16 +22,11 @@ namespace Serwer
     public  class ServerEchoAPM : ServerEcho
 
     {
-        /// <summary>
-        /// zmienne do komunikatów
-        /// </summary>
-        static string passwd = "maslo";
-        static string message = "Witaj na serwerze, podaj haslo \n\r";
-        static string message2 = "Brawo, haslo to maslo. Zamykanie polaczenia \n\r";
-        static string message3 = "Zle haslo, wpisz ponownie \n\r";
       
         public delegate void TransmissionDataDelegate(NetworkStream stream);
         protected bool running;
+
+        public static DataBase db = new DataBase();
 
 
         public ServerEchoAPM(IPAddress IP, int port) : base(IP, port)
@@ -64,7 +60,6 @@ namespace Serwer
 
 
         private void TransmissionCallback(IAsyncResult ar)
-
         {
             TcpClient client = (TcpClient)ar.AsyncState;
             client.Close();
@@ -73,56 +68,42 @@ namespace Serwer
         }
 
         protected override void BeginDataTransmission(NetworkStream stream)
-
         {
-
+            CommunicationSupport cs = new CommunicationSupport();
             byte[] buffer = new byte[Buffer_size];
 
 
-                while (true)
-
-                {
+            while (true)
+            {
                 try
                 {
-                    byte[] msg = Encoding.ASCII.GetBytes(message);
-                    stream.Write(msg, 0, msg.Length);
-                    stream.Read(buffer, 0,Buffer_size); ///odczyt hasla
-                    string reply = Encoding.ASCII.GetString(buffer);
-                    var reply_letters = new String(reply.Where(Char.IsLetter).ToArray()); /// zamiana bajtów na stringa z samymi literami
+                    stream.Read(buffer, 0,Buffer_size); 
+                    string communicate = Encoding.ASCII.GetString(buffer);
+                    var communicate_letters = new String(communicate.Where(Char.IsLetter).ToArray()); /// zamiana bajtów na stringa z samymi literami do sprawdzenia
                     Array.Clear(buffer, 0, buffer.Length);
-                    if (passwd == reply_letters)
-                    {
-                        byte[] msg2 = Encoding.ASCII.GetBytes(message2);  ///wiadomość kończąca
-                        stream.Write(msg2, 0, msg2.Length);
-                        break;
-
-                    }
-                    else
-                    {
-                        byte[] msg3 = Encoding.ASCII.GetBytes(message3);  ///wiadomość kończąca
-                        stream.Write(msg3, 0, msg3.Length);
-                    }
+                    if (communicate_letters == "") continue; ///sprawdzenie czy wiadomosc nie jest /r/n/0/0/0/...
+                    string reply = cs.AnalysingCommunicate(communicate);
+                    byte[] msg = Encoding.ASCII.GetBytes(reply);  ///wiadomość zwrotna
+                    stream.Write(msg, 0, msg.Length);
                 }
                 catch (IOException e)
                 {
                     break;
                 }
-
-                }
+            }
            
-
         }
       
         public override void Start()
 
         {
-
+            db.ReadDataBase();
             StartListening();
 
             //transmission starts within the accept function
 
             AcceptClient();
-
+            db.Write2DataBase();
 
         }
 
