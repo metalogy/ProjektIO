@@ -35,6 +35,7 @@ namespace GUI_projektIO
             this.labelLogin = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
+            this.failedLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginText
@@ -91,11 +92,23 @@ namespace GUI_projektIO
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // failedLogin
+            // 
+            this.failedLogin.AutoSize = true;
+            this.failedLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.failedLogin.ForeColor = System.Drawing.Color.DarkRed;
+            this.failedLogin.Location = new System.Drawing.Point(12, 130);
+            this.failedLogin.Name = "failedLogin";
+            this.failedLogin.Size = new System.Drawing.Size(167, 13);
+            this.failedLogin.TabIndex = 6;
+            this.failedLogin.Text = "Wprowadź poprawny login i hasło";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(186, 127);
+            this.ClientSize = new System.Drawing.Size(186, 184);
+            this.Controls.Add(this.failedLogin);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);
@@ -117,6 +130,7 @@ namespace GUI_projektIO
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Label failedLogin;
     }
 }
 

@@ -14,24 +14,25 @@ namespace GUI_projektIO
 {
     public partial class Form1 : Form
     {
-        private String login;
+        public static String login;
         private String password;
 
         public Form1()
         {
+            
             InitializeComponent();
-            loginText.Hide();
-            loginText.Show();
-            if (connection.client.Connected)
-            {
-
+            //loginText.Hide();
+            //loginText.Show();
+            failedLogin.Hide();
+           /* if (connection.client.Connected)
+            { 
                 NetworkStream stream = connection.client.GetStream();
                 Byte[] data = new Byte[256];
-                 String responseData = String.Empty;
+                String responseData = String.Empty;
                 Int32 bytes = stream.Read(data, 0, data.Length);
                 responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
                 Console.WriteLine("Received: {0}", responseData);
-            }
+            }*/
 
         }
 
@@ -48,8 +49,36 @@ namespace GUI_projektIO
             password = passwordText.Text;
             //tutaj łączenie się z bazą danych i logowanie
             var form2 = new Form2();
-            form2.Show();
-            Hide(); //zamknięcie zamiast ukrycia??"?
+            if (connection.client.Connected)
+            {
+                int a=connection.sendLoginCredentials(login, this.password);
+
+                if (connection.sendLoginCredentials(login, this.password)==1) //dane logowania poprawne
+                {
+                    form2.Show();
+                    Hide(); //zamknięcie zamiast ukrycia??"?
+                    Console.WriteLine("Zalogowano");
+                }
+                else
+                {
+
+                    Console.WriteLine("Nieudane logowanie");
+                    var t = new Timer();
+                    t.Interval = 1500; // 1,5 sekundy
+                    failedLogin.Show();
+                    t.Tick += (s, er) =>
+                    {
+                        failedLogin.Hide();
+                        t.Stop();
+                    };
+                    t.Start();
+                }
+                  
+               
+            }
+           
+           // form2.Show();
+            //Hide(); //zamknięcie zamiast ukrycia??"?
 
         }
 

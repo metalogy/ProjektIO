@@ -21,7 +21,8 @@ namespace GUI_projektIO
         public Form2()
         {
             //trza pobrać imię i nazwisko z banku
-            name = "TESTOWY";
+            
+            name = Form1.login;
             InitializeComponent();
             helloLabel.Text = String.Format("Witaj w Banku {0}", name);
             moneyText.Hide(); //ukrywamy pole to wpisywania pieniędzy
@@ -33,7 +34,7 @@ namespace GUI_projektIO
 
 
             //TESTOWE POŁĄCZENIE CZEŚĆ 2!!!!!!!!
-            if (connection.client.Connected)
+            /*if (connection.client.Connected)
             {
                 
                 NetworkStream stream = connection.client.GetStream();
@@ -44,7 +45,7 @@ namespace GUI_projektIO
                 Int32 bytes = stream.Read(data, 0, data.Length);
                 responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
                 Console.WriteLine("Received: {0}", responseData);
-            }
+            }*/
 
         }
 
@@ -75,7 +76,8 @@ namespace GUI_projektIO
         private void actionOutButton_Click(object sender, EventArgs e)
         {
             int m = Int32.Parse(moneyText.Text);
-            this.accBalance =accBalance-m;
+            //this.accBalance =accBalance-m;
+            connection.cashOut(m);
             checkBalance();
             operationOutConfrimation();
             textLabel1.Show();
@@ -91,7 +93,7 @@ namespace GUI_projektIO
 
         private void checkBalance()
         {
-            
+            this.accBalance = connection.checkBalance();
             balance.Text = String.Format("Stan twojego konta w banku wynosi {0}$", accBalance);
             var t = new Timer();
             t.Interval = 1500; // 1,5 sekundy
@@ -150,7 +152,8 @@ namespace GUI_projektIO
         {
 
             int m = Int32.Parse(moneyText.Text);
-            this.accBalance = accBalance + m;
+            //this.accBalance = accBalance + m;
+            connection.cashIn(m);
             checkBalance();
             textLabel1.Show();
             cashIn.Show();
