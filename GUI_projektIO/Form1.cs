@@ -19,21 +19,10 @@ namespace GUI_projektIO
 
         public Form1()
         {
-            
             InitializeComponent();
             //loginText.Hide();
             //loginText.Show();
             failedLogin.Hide();
-           /* if (connection.client.Connected)
-            { 
-                NetworkStream stream = connection.client.GetStream();
-                Byte[] data = new Byte[256];
-                String responseData = String.Empty;
-                Int32 bytes = stream.Read(data, 0, data.Length);
-                responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-                Console.WriteLine("Received: {0}", responseData);
-            }*/
-
         }
 
 
@@ -73,12 +62,8 @@ namespace GUI_projektIO
                     };
                     t.Start();
                 }
-                  
-               
+
             }
-           
-           // form2.Show();
-            //Hide(); //zamknięcie zamiast ukrycia??"?
 
         }
 

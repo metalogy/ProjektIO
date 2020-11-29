@@ -77,7 +77,15 @@ namespace GUI_projektIO
         {
             int m = Int32.Parse(moneyText.Text);
             //this.accBalance =accBalance-m;
-            connection.cashOut(m);
+            if(connection.cashOut(m)==1)
+            {
+                Console.WriteLine("Pomyśnie wypłacono");
+            }
+            else
+            {
+                Console.WriteLine("Błąd");
+            }
+
             checkBalance();
             operationOutConfrimation();
             textLabel1.Show();
@@ -153,7 +161,14 @@ namespace GUI_projektIO
 
             int m = Int32.Parse(moneyText.Text);
             //this.accBalance = accBalance + m;
-            connection.cashIn(m);
+            if (connection.cashIn(m) == 1)
+            {
+                Console.WriteLine("Pomyśnie wpłacono");
+            }
+            else
+            {
+                Console.WriteLine("Błąd");
+            }
             checkBalance();
             textLabel1.Show();
             cashIn.Show();

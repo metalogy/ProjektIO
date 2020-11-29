@@ -40,22 +40,30 @@ namespace GUI_projektIO
             int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
             return responseData;
         }
-        public static void cashOut(int amount)
+        public static int cashOut(int amount)
         {
             NetworkStream stream = connection.client.GetStream();
             String credentials = String.Format("3:{0}",amount); //3:wypłata
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Send cash out request");
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
+            return responseData;
 
         }
-        public static void cashIn(int amount)
+        public static int cashIn(int amount)
         {
             NetworkStream stream = connection.client.GetStream();
             String credentials = String.Format("4:{0}", amount); //4:wpłata
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Send cash in request");
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
+            return responseData;
 
         }
 
