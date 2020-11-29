@@ -20,9 +20,8 @@ namespace GUI_projektIO
        
         public Form2()
         {
-            //trza pobrać imię i nazwisko z banku
-            
-            name = Form1.login;
+           
+            name = Form1.login; //chwilowe
             InitializeComponent();
             helloLabel.Text = String.Format("Witaj w Banku {0}", name);
             moneyText.Hide(); //ukrywamy pole to wpisywania pieniędzy
@@ -30,22 +29,7 @@ namespace GUI_projektIO
             actionInButton.Hide();
            //confirmation.Hide(); //i potwierdzenie
             back.Hide();
-            this.accBalance = 777;//testowe
-
-
-            //TESTOWE POŁĄCZENIE CZEŚĆ 2!!!!!!!!
-            /*if (connection.client.Connected)
-            {
-                
-                NetworkStream stream = connection.client.GetStream();
-                Byte[] data = System.Text.Encoding.ASCII.GetBytes("maslo");
-                stream.Write(data, 0, data.Length);
-                data = new Byte[256];
-                String responseData = String.Empty;
-                Int32 bytes = stream.Read(data, 0, data.Length);
-                responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-                Console.WriteLine("Received: {0}", responseData);
-            }*/
+           // this.accBalance = 777;//testowe
 
         }
 
@@ -69,8 +53,6 @@ namespace GUI_projektIO
             back.Show();
             moneyText.Show();
             actionOutButton.Show();
-
-
         }
 
         private void actionOutButton_Click(object sender, EventArgs e)
@@ -96,7 +78,6 @@ namespace GUI_projektIO
             moneyText.Hide(); 
             actionOutButton.Hide();
             back.Hide();
-
         }
 
         private void checkBalance()

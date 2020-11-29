@@ -8,4 +8,4 @@ C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.csproj.CoreCompileInputs.cache
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.exe
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.pdb
-C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.Form2.resources
+C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.exit.resources
