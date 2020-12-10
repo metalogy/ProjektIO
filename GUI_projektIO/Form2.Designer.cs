@@ -41,6 +41,7 @@ namespace GUI_projektIO
             this.cashIn = new System.Windows.Forms.Button();
             this.actionInButton = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
+            this.transferMoney = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // helloLabel
@@ -160,12 +161,23 @@ namespace GUI_projektIO
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
+            // transferMoney
+            // 
+            this.transferMoney.Location = new System.Drawing.Point(343, 310);
+            this.transferMoney.Name = "transferMoney";
+            this.transferMoney.Size = new System.Drawing.Size(115, 23);
+            this.transferMoney.TabIndex = 15;
+            this.transferMoney.Text = "Przelew";
+            this.transferMoney.UseVisualStyleBackColor = true;
+            this.transferMoney.Click += new System.EventHandler(this.transferMoney_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.transferMoney);
             this.Controls.Add(this.back);
             this.Controls.Add(this.actionInButton);
             this.Controls.Add(this.cashIn);
@@ -199,5 +211,6 @@ namespace GUI_projektIO
         private System.Windows.Forms.Button cashIn;
         private System.Windows.Forms.Button actionInButton;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button transferMoney;
     }
 }

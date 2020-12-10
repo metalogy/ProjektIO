@@ -12,19 +12,33 @@ using System.Net.Sockets;
 
 namespace GUI_projektIO
 {
+     
     public partial class Form2 : Form
     {
         protected String name;
         protected String surname;
         protected int accBalance;
+        protected List<accountsStruct> accounts;
 
         public Form2()
         {
             //trza pobrać imię i nazwisko z banku
 
             name = Form1.login;
+           /// accounts = ServerCommuniacationProtocol.getAccounts(connection.downloadAccounts());
             InitializeComponent();
             helloLabel.Text = String.Format("Witaj w Banku {0}", name);
+            moneyText.Hide(); //ukrywamy pole to wpisywania pieniędzy
+            actionOutButton.Hide();//i przycisk od akcji
+            actionInButton.Hide();
+            back.Hide();
+        }
+        public Form2(String message)
+        {
+            //name = Form1.login;
+            /// accounts = ServerCommuniacationProtocol.getAccounts(connection.downloadAccounts());
+            InitializeComponent();
+            confirmationFunc(message);
             moneyText.Hide(); //ukrywamy pole to wpisywania pieniędzy
             actionOutButton.Hide();//i przycisk od akcji
             actionInButton.Hide();
@@ -51,8 +65,6 @@ namespace GUI_projektIO
             back.Show();
             moneyText.Show();
             actionOutButton.Show();
-
-
         }
 
         private void actionOutButton_Click(object sender, EventArgs e)
@@ -69,7 +81,7 @@ namespace GUI_projektIO
             }
 
             checkBalance();
-            operationOutConfrimation();
+            confirmationFunc("Pomyślnie wypłacono pieniądze");
             textLabel1.Show();
             cashIn.Show();
             cashOut.Show();
@@ -96,9 +108,9 @@ namespace GUI_projektIO
             t.Start();
 
         }
-        private void operationInConfrimation()
+        private void confirmationFunc(String message)
         {
-            confirmation.Text = String.Format("Pomyślnie wpłacono pieniądze");
+            confirmation.Text = String.Format(message);
             confirmation.Show();
             var t = new Timer();
             t.Interval = 1500; // 1,5 sekundy
@@ -110,20 +122,7 @@ namespace GUI_projektIO
             t.Start();
 
         }
-        private void operationOutConfrimation()
-        {
-            confirmation.Text = String.Format("Pomyślnie wypłacono pieniądze");
-            confirmation.Show();
-            var t = new Timer();
-            t.Interval = 1500; // 1,5 sekundy
-            t.Tick += (s, e) =>
-            {
-                confirmation.Hide();
-                t.Stop();
-            };
-            t.Start();
 
-        }
 
         private void cashIn_Click(object sender, EventArgs e)
         {
@@ -160,7 +159,7 @@ namespace GUI_projektIO
             moneyText.Hide();
             actionInButton.Hide();
             back.Hide();
-            operationInConfrimation();
+            confirmationFunc("Pomyślnie wpłacono pieniądze");
 
         }
 
@@ -174,6 +173,14 @@ namespace GUI_projektIO
             moneyText.Hide();
             actionInButton.Hide();
             actionOutButton.Hide();
+        }
+
+        private void transferMoney_Click(object sender, EventArgs e)
+        {
+            var transferWindow = new transferWindow(this.accounts);
+            transferWindow.Show();
+            this.Hide();
+
         }
     }
 }

@@ -36,12 +36,14 @@ namespace GUI_projektIO
             password = passwordText.Text;
             //tutaj łączenie się z bazą danych i logowanie
             var form2 = new Form2();
-            if (connection.client.Connected)
-            {
+            //if (connection.client.Connected)
+                if (true)
+                {
                 //int a=connection.sendLoginCredentials(login, this.password);
 
-                if (connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
-                {
+                //if (connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
+                    if (true) //dane logowania poprawne
+                    {
                     form2.Show();
                     Hide(); //zamknięcie zamiast ukrycia??"?
                     Console.WriteLine("Zalogowano");

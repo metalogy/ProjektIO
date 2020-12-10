@@ -61,6 +61,32 @@ namespace GUI_projektIO
             return responseData;
 
         }
+        public static int sendCash(int accountID,int amount)
+        {
+            NetworkStream stream = connection.client.GetStream();
+            String credentials = String.Format("5:{0}:{1}", accountID, amount); //5-transfer na inne konto 5:konto:suma
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
+            stream.Write(data, 0, data.Length);
+            Console.WriteLine("Send cash transfer");
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
+            return responseData;
+
+        }
+        public static String downloadAccounts()
+        {
+            NetworkStream stream = connection.client.GetStream();
+            String credentials = String.Format("6:"); //6-Żądanie pobrania listy użytkowników kont 
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
+            stream.Write(data, 0, data.Length);
+            Console.WriteLine("Send user list request"); /// id i nazwy użytkowników oddzielamy *
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            String responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+            return responseData;
+
+        }
 
 
     }
