@@ -12,12 +12,12 @@ namespace GUI_projektIO
 {
     public partial class transferWindow: Form
     {
-        List<accountsStruct> accounts;
-        public transferWindow(List<accountsStruct> accounts)
+        List<accountStruct> accounts;
+        public transferWindow(List<accountStruct> accounts)
         {
             this.accounts = accounts;
             InitializeComponent();
-            foreach(accountsStruct user in this.accounts)
+            foreach(accountStruct user in this.accounts)
             {
                 comboBoxUsers.Items.Add(user.name);
             }
@@ -25,7 +25,7 @@ namespace GUI_projektIO
 
         private void exit_Click(object sender, EventArgs e)
         {
-            connection.client.Close();
+            Connection.client.Close();
             this.Close();
         }
 
@@ -35,7 +35,7 @@ namespace GUI_projektIO
             int m = Int32.Parse(moneyText.Text);
             String u=comboBoxUsers.Text;
             int id=0;
-            foreach(accountsStruct user in this.accounts)
+            foreach(accountStruct user in this.accounts)
             {
                 if(user.name==u)
                 {
@@ -43,7 +43,7 @@ namespace GUI_projektIO
                     break;
                 }
             }  
-            if (connection.sendCash(id,m) == 1)
+            if (Connection.sendCash(id,m) == 1)
             {
                 var MainMenuForm = new MainMenuForm("Pomyślnie przelano pieniądze");
                 MainMenuForm.Show();

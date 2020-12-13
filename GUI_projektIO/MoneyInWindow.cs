@@ -20,7 +20,7 @@ namespace GUI_projektIO
         private void actionInButton_Click(object sender, EventArgs e)
         {
             int m = Int32.Parse(moneyText.Text);
-            if (connection.cashOut(m) == 1)
+            if (Connection.cashOut(m) == 1)
             {
                 var MainMenuForm = new MainMenuForm("Pomyślnie wpłacono pieniądze");
                 Console.WriteLine("Pomyślnie wpłacono pieniądze");
@@ -39,7 +39,7 @@ namespace GUI_projektIO
 
         private void exit_Click(object sender, EventArgs e)
         {
-            connection.client.Close();
+            Connection.client.Close();
             this.Close();
         }
 

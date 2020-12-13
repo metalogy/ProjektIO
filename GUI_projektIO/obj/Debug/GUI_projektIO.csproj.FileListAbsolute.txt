@@ -12,3 +12,17 @@ C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.MainMenuForm.resources
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.MoneyInWindow.resources
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.MoneyOutWindow.resources
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.csprojAssemblyReference.cache
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.LoginForm.resources
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.MainMenuForm.resources
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.MoneyInWindow.resources
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.MoneyOutWindow.resources
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.Properties.Resources.resources
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.transferWindow.resources
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.csproj.GenerateResource.cache
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.csproj.CoreCompileInputs.cache
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.exe
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\obj\Debug\GUI_projektIO.pdb
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\bin\Debug\GUI_projektIO.exe.config
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\bin\Debug\GUI_projektIO.exe
+C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\bin\Debug\GUI_projektIO.pdb

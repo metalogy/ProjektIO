@@ -29,12 +29,12 @@ namespace GUI_projektIO
             password = passwordText.Text;
             //tutaj łączenie się z bazą danych i logowanie
             var form2 = new MainMenuForm();
-            if (connection.client.Connected)
+            if (Connection.client.Connected)
                 //if (true)
                 {
-                int a=connection.sendLoginCredentials(login, this.password);
+                int a=Connection.sendLoginCredentials(login, this.password);
 
-                if (connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
+                if (Connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
                     //if (true) //dane logowania poprawne
                     {
                     form2.Show();
@@ -62,7 +62,7 @@ namespace GUI_projektIO
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            connection.client.Close();
+            Connection.client.Close();
             this.Close();
         }
 

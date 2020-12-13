@@ -18,28 +18,28 @@ namespace GUI_projektIO
         protected String name;
         protected String surname;
         protected int accBalance;
-        protected List<accountsStruct> accounts;
+        protected List<accountStruct> accounts;
 
         public MainMenuForm()
         {
             //trza pobrać imię i nazwisko z banku
 
             name = LoginForm.login;
-           /// accounts = ServerCommuniacationProtocol.getAccounts(connection.downloadAccounts());
+           /// accounts = AccountsInformation.getAccounts(connection.downloadAccounts());
             InitializeComponent();
             helloLabel.Text = String.Format("Witaj w Banku {0}", name);
         }
         public MainMenuForm(String message)
         {
             name = LoginForm.login;
-            /// accounts = ServerCommuniacationProtocol.getAccounts(connection.downloadAccounts());
+            /// accounts = AccountsInformation.getAccounts(connection.downloadAccounts());
             InitializeComponent();
             confirmationFunc(message);
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
-            connection.client.Close();
+            Connection.client.Close();
             this.Close();
         }
         private void check_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace GUI_projektIO
         }
         private void checkBalance()
         {
-            this.accBalance = connection.checkBalance();
+            this.accBalance = Connection.checkBalance();
             balance.Text = String.Format("Stan twojego konta w banku wynosi {0}$", accBalance);
             var t = new Timer();
             t.Interval = 1500; // 1,5 sekundy
