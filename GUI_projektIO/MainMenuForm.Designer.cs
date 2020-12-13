@@ -1,7 +1,7 @@
 ﻿
 namespace GUI_projektIO
 {
-    partial class Form2
+    partial class MainMenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,12 +35,8 @@ namespace GUI_projektIO
             this.cashOut = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
             this.balance = new System.Windows.Forms.Label();
-            this.actionOutButton = new System.Windows.Forms.Button();
-            this.moneyText = new System.Windows.Forms.TextBox();
             this.confirmation = new System.Windows.Forms.Label();
             this.cashIn = new System.Windows.Forms.Button();
-            this.actionInButton = new System.Windows.Forms.Button();
-            this.back = new System.Windows.Forms.Button();
             this.transferMoney = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -104,23 +100,6 @@ namespace GUI_projektIO
             this.balance.Size = new System.Drawing.Size(0, 29);
             this.balance.TabIndex = 6;
             // 
-            // actionOutButton
-            // 
-            this.actionOutButton.Location = new System.Drawing.Point(401, 179);
-            this.actionOutButton.Name = "actionOutButton";
-            this.actionOutButton.Size = new System.Drawing.Size(75, 23);
-            this.actionOutButton.TabIndex = 8;
-            this.actionOutButton.Text = "Wypłać";
-            this.actionOutButton.UseVisualStyleBackColor = true;
-            this.actionOutButton.Click += new System.EventHandler(this.actionOutButton_Click);
-            // 
-            // moneyText
-            // 
-            this.moneyText.Location = new System.Drawing.Point(295, 182);
-            this.moneyText.Name = "moneyText";
-            this.moneyText.Size = new System.Drawing.Size(100, 20);
-            this.moneyText.TabIndex = 9;
-            // 
             // confirmation
             // 
             this.confirmation.AutoSize = true;
@@ -141,26 +120,6 @@ namespace GUI_projektIO
             this.cashIn.UseVisualStyleBackColor = true;
             this.cashIn.Click += new System.EventHandler(this.cashIn_Click);
             // 
-            // actionInButton
-            // 
-            this.actionInButton.Location = new System.Drawing.Point(401, 180);
-            this.actionInButton.Name = "actionInButton";
-            this.actionInButton.Size = new System.Drawing.Size(75, 23);
-            this.actionInButton.TabIndex = 13;
-            this.actionInButton.Text = "Wpłać";
-            this.actionInButton.UseVisualStyleBackColor = true;
-            this.actionInButton.Click += new System.EventHandler(this.actionInButton_Click_1);
-            // 
-            // back
-            // 
-            this.back.Location = new System.Drawing.Point(401, 223);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(75, 23);
-            this.back.TabIndex = 14;
-            this.back.Text = "Cofnij";
-            this.back.UseVisualStyleBackColor = true;
-            this.back.Click += new System.EventHandler(this.back_Click);
-            // 
             // transferMoney
             // 
             this.transferMoney.Location = new System.Drawing.Point(343, 310);
@@ -171,26 +130,22 @@ namespace GUI_projektIO
             this.transferMoney.UseVisualStyleBackColor = true;
             this.transferMoney.Click += new System.EventHandler(this.transferMoney_Click);
             // 
-            // Form2
+            // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.transferMoney);
-            this.Controls.Add(this.back);
-            this.Controls.Add(this.actionInButton);
             this.Controls.Add(this.cashIn);
             this.Controls.Add(this.confirmation);
-            this.Controls.Add(this.moneyText);
-            this.Controls.Add(this.actionOutButton);
             this.Controls.Add(this.balance);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.cashOut);
             this.Controls.Add(this.check);
             this.Controls.Add(this.textLabel1);
             this.Controls.Add(this.helloLabel);
-            this.Name = "Form2";
+            this.Name = "MainMenuForm";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -205,12 +160,8 @@ namespace GUI_projektIO
         private System.Windows.Forms.Button cashOut;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Label balance;
-        private System.Windows.Forms.Button actionOutButton;
-        private System.Windows.Forms.TextBox moneyText;
         private System.Windows.Forms.Label confirmation;
         private System.Windows.Forms.Button cashIn;
-        private System.Windows.Forms.Button actionInButton;
-        private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button transferMoney;
     }
 }

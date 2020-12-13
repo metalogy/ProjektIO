@@ -12,22 +12,15 @@ using System.Net.Sockets;
 using System.IO;
 namespace GUI_projektIO
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         public static String login;
         private String password;
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
             failedLogin.Hide();
-        }
-
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //nie mogę znaleźć dziada żeby usunąć
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -35,14 +28,14 @@ namespace GUI_projektIO
             login = loginText.Text;
             password = passwordText.Text;
             //tutaj łączenie się z bazą danych i logowanie
-            var form2 = new Form2();
-            //if (connection.client.Connected)
-                if (true)
+            var form2 = new MainMenuForm();
+            if (connection.client.Connected)
+                //if (true)
                 {
-                //int a=connection.sendLoginCredentials(login, this.password);
+                int a=connection.sendLoginCredentials(login, this.password);
 
-                //if (connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
-                    if (true) //dane logowania poprawne
+                if (connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
+                    //if (true) //dane logowania poprawne
                     {
                     form2.Show();
                     Hide(); //zamknięcie zamiast ukrycia??"?
@@ -72,5 +65,6 @@ namespace GUI_projektIO
             connection.client.Close();
             this.Close();
         }
+
     }
 }

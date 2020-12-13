@@ -45,27 +45,27 @@ namespace GUI_projektIO
             }  
             if (connection.sendCash(id,m) == 1)
             {
-                var form2 = new Form2("Pomyślnie przelano pieniądze"); 
-                form2.Show();
+                var MainMenuForm = new MainMenuForm("Pomyślnie przelano pieniądze");
+                MainMenuForm.Show();
                 Console.WriteLine("Pomyśnie przelano");
                 this.Close();
                 
             }
             else
             {
-                var form2 = new Form2("Błąd przelewu");
+                var MainMenuForm = new MainMenuForm("Błąd przelewu");
                 Console.WriteLine("Błąd przelewu");
                 this.Close();
-                form2.Show();
+                MainMenuForm.Show();
             }
 
         }
 
         private void back_Click(object sender, EventArgs e)
         {
-            var form2 = new Form2();
+            var MainMenuForm = new MainMenuForm();
             this.Close();
-            form2.Show();
+            MainMenuForm.Show();
         }
     }
 }

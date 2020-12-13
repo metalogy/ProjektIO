@@ -1,7 +1,7 @@
 ﻿
 namespace GUI_projektIO
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -29,26 +29,18 @@ namespace GUI_projektIO
         /// </summary>
         private void InitializeComponent()
         {
-            this.loginText = new System.Windows.Forms.TextBox();
             this.passwordText = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.labelLogin = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.failedLogin = new System.Windows.Forms.Label();
+            this.loginText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // loginText
-            // 
-            this.loginText.Location = new System.Drawing.Point(44, 12);
-            this.loginText.Name = "loginText";
-            this.loginText.Size = new System.Drawing.Size(100, 20);
-            this.loginText.TabIndex = 0;
-            this.loginText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // passwordText
             // 
-            this.passwordText.Location = new System.Drawing.Point(44, 39);
+            this.passwordText.Location = new System.Drawing.Point(44, 38);
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '*';
             this.passwordText.Size = new System.Drawing.Size(100, 20);
@@ -103,19 +95,26 @@ namespace GUI_projektIO
             this.failedLogin.TabIndex = 6;
             this.failedLogin.Text = "Wprowadź poprawny login i hasło";
             // 
-            // Form1
+            // loginText
+            // 
+            this.loginText.Location = new System.Drawing.Point(44, 12);
+            this.loginText.Name = "loginText";
+            this.loginText.Size = new System.Drawing.Size(100, 20);
+            this.loginText.TabIndex = 8;
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(186, 184);
+            this.Controls.Add(this.loginText);
             this.Controls.Add(this.failedLogin);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordText);
-            this.Controls.Add(this.loginText);
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,14 +122,13 @@ namespace GUI_projektIO
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox loginText;
         private System.Windows.Forms.TextBox passwordText;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label failedLogin;
+        private System.Windows.Forms.TextBox loginText;
     }
 }
 
