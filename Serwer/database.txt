@@ -1,0 +1,6 @@
+admin admin 100300
+osoba1 123 300
+osoba2 123 1
+osoba3 123 2
+osoba4 123 100
+osoba5 123 -1000

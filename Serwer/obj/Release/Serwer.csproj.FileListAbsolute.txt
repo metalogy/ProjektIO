@@ -5,3 +5,9 @@ C:\Users\metal\source\repos\Lab2\Serwer\bin\Release\Serwer.dll
 C:\Users\metal\source\repos\Lab2\Serwer\bin\Release\Serwer.pdb
 C:\Users\metal\source\repos\Lab2\Serwer\obj\Release\Serwer.dll
 C:\Users\metal\source\repos\Lab2\Serwer\obj\Release\Serwer.pdb
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\bin\Release\Serwer.dll.config
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\bin\Release\Serwer.dll
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\bin\Release\Serwer.pdb
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\obj\Release\Serwer.csproj.CoreCompileInputs.cache
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\obj\Release\Serwer.dll
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\obj\Release\Serwer.pdb
