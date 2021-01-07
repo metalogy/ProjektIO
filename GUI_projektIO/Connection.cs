@@ -132,6 +132,47 @@ namespace GUI_projektIO
             return responseData;
 
         }
+        /// <summary>
+        /// Funkcja tworząca konto
+        /// </summary>
+        /// <param name="login">Login użytkownika.</param>
+        /// <param name="password">Hasło użytkownika.</param>
+        ///  <param name="name">Imię użytkownika.</param>
+        ///  <param name="surname">Nazwisko użytkownika.</param>
+        /// <returns>Wartość określająca poprawność (0-1).</returns>
+        public static int createAccount(String login, String password, String name, String surname)
+        {
+            NetworkStream stream = Connection.client.GetStream();
+            String credentials = String.Format("7:{0}:{1}:{2}:{3}",login,password,name,surname); //7-Tworzenie konta
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
+            stream.Write(data, 0, data.Length);
+            Console.WriteLine("Send creating account request"); /// id i nazwy użytkowników oddzielamy *
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
+            return responseData;
+
+        }
+        /// <summary>
+        /// Funkcja usuwająca konto
+        /// </summary>
+        /// <param name="login">Login użytkownika.</param>
+        /// <param name="password">Hasło użytkownika.</param>
+        /// <returns>Wartość określająca poprawność (0-1).</returns>
+        public static int deleteAccount(String login, String password)
+        {
+            NetworkStream stream = Connection.client.GetStream();
+            String credentials = String.Format("8:{0}",login,password); //8-Żądanie usunięcia konta 
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
+            stream.Write(data, 0, data.Length);
+            Console.WriteLine("Send account delete request"); /// id i nazwy użytkowników oddzielamy *
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
+            return responseData;
+
+        }
+
         #endregion
 
 

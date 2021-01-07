@@ -28,16 +28,16 @@ namespace GUI_projektIO
             login = loginText.Text;
             password = passwordText.Text;
             //tutaj łączenie się z bazą danych i logowanie
-            var form2 = new MainMenuForm();
+            var MainMenuForm = new MainMenuForm();
             if (Connection.client.Connected)
-                //if (true)
+                if (true)
                 {
                 int a=Connection.sendLoginCredentials(login, this.password);
 
                 if (Connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
-                    //if (true) //dane logowania poprawne
+                    if (true) //dane logowania poprawne
                     {
-                    form2.Show();
+                    MainMenuForm.Show();
                     Hide(); //zamknięcie zamiast ukrycia??"?
                     Console.WriteLine("Zalogowano");
                 }
@@ -66,5 +66,11 @@ namespace GUI_projektIO
             this.Close();
         }
 
+        private void createAccountButton_Click(object sender, EventArgs e)
+        {
+            var CreateAccountForm = new CreateAccountForm();
+            CreateAccountForm.Show();
+            Hide();
+        }
     }
 }

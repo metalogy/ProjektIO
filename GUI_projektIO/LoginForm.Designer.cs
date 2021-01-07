@@ -36,6 +36,7 @@ namespace GUI_projektIO
             this.exitButton = new System.Windows.Forms.Button();
             this.failedLogin = new System.Windows.Forms.Label();
             this.loginText = new System.Windows.Forms.TextBox();
+            this.createAccountButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // passwordText
@@ -102,11 +103,22 @@ namespace GUI_projektIO
             this.loginText.Size = new System.Drawing.Size(100, 20);
             this.loginText.TabIndex = 8;
             // 
+            // createAccountButton
+            // 
+            this.createAccountButton.Location = new System.Drawing.Point(44, 146);
+            this.createAccountButton.Name = "createAccountButton";
+            this.createAccountButton.Size = new System.Drawing.Size(100, 23);
+            this.createAccountButton.TabIndex = 9;
+            this.createAccountButton.Text = "Stwórz konto";
+            this.createAccountButton.UseVisualStyleBackColor = true;
+            this.createAccountButton.Click += new System.EventHandler(this.createAccountButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(186, 184);
+            this.Controls.Add(this.createAccountButton);
             this.Controls.Add(this.loginText);
             this.Controls.Add(this.failedLogin);
             this.Controls.Add(this.exitButton);
@@ -129,6 +141,7 @@ namespace GUI_projektIO
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label failedLogin;
         private System.Windows.Forms.TextBox loginText;
+        private System.Windows.Forms.Button createAccountButton;
     }
 }
 

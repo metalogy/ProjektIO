@@ -29,6 +29,15 @@ namespace GUI_projektIO
             InitializeComponent();
             helloLabel.Text = String.Format("Witaj w Banku {0}", name);
         }
+        public MainMenuForm(String login,String password) //do przejścia po stworzenia konta
+        {
+            //trza pobrać imię i nazwisko z banku
+
+            name = login;
+            /// accounts = AccountsInformation.getAccounts(connection.downloadAccounts());
+            InitializeComponent();
+            helloLabel.Text = String.Format("Witaj w Banku {0}", name);
+        }
         public MainMenuForm(String message)
         {
             name = LoginForm.login;
@@ -97,6 +106,13 @@ namespace GUI_projektIO
             transferWindow.Show();
             this.Hide();
 
+        }
+
+        private void deleteAccount_Click(object sender, EventArgs e)
+        {
+            var DeleteAccountWindow = new DeleteAccountWindow(name); //przekazujemy login użytkownika
+            DeleteAccountWindow.Show();
+            this.Hide();
         }
     }
 }

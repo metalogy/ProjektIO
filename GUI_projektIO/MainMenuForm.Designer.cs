@@ -29,6 +29,7 @@ namespace GUI_projektIO
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.helloLabel = new System.Windows.Forms.Label();
             this.textLabel1 = new System.Windows.Forms.Label();
             this.check = new System.Windows.Forms.Button();
@@ -38,6 +39,8 @@ namespace GUI_projektIO
             this.confirmation = new System.Windows.Forms.Label();
             this.cashIn = new System.Windows.Forms.Button();
             this.transferMoney = new System.Windows.Forms.Button();
+            this.deleteAccount = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // helloLabel
@@ -130,12 +133,28 @@ namespace GUI_projektIO
             this.transferMoney.UseVisualStyleBackColor = true;
             this.transferMoney.Click += new System.EventHandler(this.transferMoney_Click);
             // 
+            // deleteAccount
+            // 
+            this.deleteAccount.Location = new System.Drawing.Point(10, 425);
+            this.deleteAccount.Name = "deleteAccount";
+            this.deleteAccount.Size = new System.Drawing.Size(111, 23);
+            this.deleteAccount.TabIndex = 16;
+            this.deleteAccount.Text = "Usuń konto";
+            this.deleteAccount.UseVisualStyleBackColor = true;
+            this.deleteAccount.Click += new System.EventHandler(this.deleteAccount_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.deleteAccount);
             this.Controls.Add(this.transferMoney);
             this.Controls.Add(this.cashIn);
             this.Controls.Add(this.confirmation);
@@ -163,5 +182,7 @@ namespace GUI_projektIO
         private System.Windows.Forms.Label confirmation;
         private System.Windows.Forms.Button cashIn;
         private System.Windows.Forms.Button transferMoney;
+        private System.Windows.Forms.Button deleteAccount;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
