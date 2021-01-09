@@ -33,7 +33,7 @@ namespace GUI_projektIO
         {
             
             int m = Int32.Parse(moneyText.Text);
-            String u=comboBoxUsers.Text;
+            String u=comboBoxUsers.Text;  //nie jestem pewien czy działa, może być coś w stylu  int selectedValue = (int)cmb.SelectedValue;
             int id=0;
             foreach(accountStruct user in this.accounts)
             {

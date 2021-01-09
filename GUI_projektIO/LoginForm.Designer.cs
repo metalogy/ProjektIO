@@ -37,6 +37,7 @@ namespace GUI_projektIO
             this.failedLogin = new System.Windows.Forms.Label();
             this.loginText = new System.Windows.Forms.TextBox();
             this.createAccountButton = new System.Windows.Forms.Button();
+            this.adminLoginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // passwordText
@@ -113,11 +114,22 @@ namespace GUI_projektIO
             this.createAccountButton.UseVisualStyleBackColor = true;
             this.createAccountButton.Click += new System.EventHandler(this.createAccountButton_Click);
             // 
+            // adminLoginButton
+            // 
+            this.adminLoginButton.Location = new System.Drawing.Point(5, 175);
+            this.adminLoginButton.Name = "adminLoginButton";
+            this.adminLoginButton.Size = new System.Drawing.Size(174, 23);
+            this.adminLoginButton.TabIndex = 10;
+            this.adminLoginButton.Text = "Panel Administaracyjny";
+            this.adminLoginButton.UseVisualStyleBackColor = true;
+            this.adminLoginButton.Click += new System.EventHandler(this.adminLoginButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(186, 184);
+            this.ClientSize = new System.Drawing.Size(186, 202);
+            this.Controls.Add(this.adminLoginButton);
             this.Controls.Add(this.createAccountButton);
             this.Controls.Add(this.loginText);
             this.Controls.Add(this.failedLogin);
@@ -142,6 +154,7 @@ namespace GUI_projektIO
         private System.Windows.Forms.Label failedLogin;
         private System.Windows.Forms.TextBox loginText;
         private System.Windows.Forms.Button createAccountButton;
+        private System.Windows.Forms.Button adminLoginButton;
     }
 }
 

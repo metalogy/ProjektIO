@@ -135,6 +135,7 @@ namespace GUI_projektIO
             // 
             // deleteAccount
             // 
+            this.deleteAccount.ForeColor = System.Drawing.Color.Red;
             this.deleteAccount.Location = new System.Drawing.Point(10, 425);
             this.deleteAccount.Name = "deleteAccount";
             this.deleteAccount.Size = new System.Drawing.Size(111, 23);

@@ -28,3 +28,5 @@ C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\bin\Debug\GUI_p
 C:\Users\banas\source\repos\metalogy\ProjektIO-GUI\GUI_projektIO\bin\Debug\GUI_projektIO.pdb
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.DeleteAccountWindow.resources
 C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.CreateAccountForm.resources
+C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.AdminLoginForm.resources
+C:\Users\metal\source\repos\GUI_projektIO\GUI_projektIO\obj\Debug\GUI_projektIO.AdminPanel.resources

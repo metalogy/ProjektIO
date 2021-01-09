@@ -29,7 +29,7 @@ namespace GUI_projektIO
             password = passwordText.Text;
             //tutaj łączenie się z bazą danych i logowanie
             var MainMenuForm = new MainMenuForm();
-            if (Connection.client.Connected)
+            //if (Connection.client.Connected)
                 if (true)
                 {
                 int a=Connection.sendLoginCredentials(login, this.password);
@@ -70,6 +70,13 @@ namespace GUI_projektIO
         {
             var CreateAccountForm = new CreateAccountForm();
             CreateAccountForm.Show();
+            Hide();
+        }
+
+        private void adminLoginButton_Click(object sender, EventArgs e)
+        {
+            var AdminLoginForm = new AdminLoginForm();
+            AdminLoginForm.Show();
             Hide();
         }
     }
