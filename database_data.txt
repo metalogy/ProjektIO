@@ -1,0 +1,6 @@
+admin admin admin 100200
+osoba1 osoba1 1aboso 300
+osoba2 osoba2 2aboso 1
+osoba3 osoba3 3aboso 2
+osoba4 osoba4 4aboso 100
+osoba5 osoba5 5aboso -1000
