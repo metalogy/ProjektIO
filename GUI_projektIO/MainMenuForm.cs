@@ -18,30 +18,19 @@ namespace GUI_projektIO
         protected String name;
         protected String surname;
         protected int accBalance;
-        protected List<accountStruct> accounts;
+        protected accountStructAll userData; //dane użytkownika
 
         public MainMenuForm()
         {
-            //trza pobrać imię i nazwisko z banku
 
-            name = LoginForm.login;
-           /// accounts = AccountsInformation.getAccounts(connection.downloadAccounts());
+            userData = AccountsInformation.getAllData(Connection.getInfo(LoginForm.login));
             InitializeComponent();
-            helloLabel.Text = String.Format("Witaj w Banku {0}", name);
+            helloLabel.Text = String.Format("Witaj w Banku {0} {1}", userData.name,userData.surname);
         }
-        public MainMenuForm(String login,String password) //do przejścia po stworzenia konta
-        {
-            //trza pobrać imię i nazwisko z banku
-
-            name = login;
-            /// accounts = AccountsInformation.getAccounts(connection.downloadAccounts());
-            InitializeComponent();
-            helloLabel.Text = String.Format("Witaj w Banku {0}", name);
-        }
+        
         public MainMenuForm(String message)
         {
-            name = LoginForm.login;
-            /// accounts = AccountsInformation.getAccounts(connection.downloadAccounts());
+            userData = AccountsInformation.getAllData(Connection.getInfo(LoginForm.login));
             InitializeComponent();
             confirmationFunc(message);
         }
@@ -50,6 +39,8 @@ namespace GUI_projektIO
         {
             Connection.client.Close();
             this.Close();
+            Environment.Exit(1);
+
         }
         private void check_Click(object sender, EventArgs e)
         {
@@ -102,7 +93,7 @@ namespace GUI_projektIO
 
         private void transferMoney_Click(object sender, EventArgs e)
         {
-            var transferWindow = new transferWindow(this.accounts);
+            var transferWindow = new transferWindow();
             transferWindow.Show();
             this.Hide();
 

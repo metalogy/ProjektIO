@@ -23,16 +23,18 @@ namespace GUI_projektIO
         private async void deleteButton_Click(object sender, EventArgs e)
         {
             String password = passwordText.Text;
-            if (Connection.deleteAccount(this.login, password) == 1)
-               // if (password == "xd")
+            if (Connection.sendLoginCredentials(this.login, password) == 1)
+            {
+                if (Connection.deleteAccount(this.login) == 1)
                 {
-                confirmationLabel.Hide();
-                confirmationLabelPassword.Hide();
-                confirmationFunc();
-                await Task.Delay(2000);
-                Console.WriteLine("Pomyśnie usunięto konto");
-                Environment.Exit(1); //zamyka wszystkie aktywne "w tle" formularze
+                    confirmationLabel.Hide();
+                    confirmationLabelPassword.Hide();
+                    confirmationFunc();
+                    await Task.Delay(1500);
+                    Console.WriteLine("Pomyśnie usunięto konto");
+                    Environment.Exit(1); //zamyka wszystkie aktywne "w tle" formularze
 
+                }
             }
             else
             {

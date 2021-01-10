@@ -32,7 +32,7 @@ namespace GUI_projektIO
             this.back = new System.Windows.Forms.Button();
             this.transferButton = new System.Windows.Forms.Button();
             this.confirmation = new System.Windows.Forms.Label();
-            this.moneyText = new System.Windows.Forms.TextBox();
+            this.moneyTextBox = new System.Windows.Forms.TextBox();
             this.balance = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.helloLabel = new System.Windows.Forms.Label();
@@ -71,12 +71,12 @@ namespace GUI_projektIO
             this.confirmation.Size = new System.Drawing.Size(0, 29);
             this.confirmation.TabIndex = 24;
             // 
-            // moneyText
+            // moneyTextBox
             // 
-            this.moneyText.Location = new System.Drawing.Point(350, 211);
-            this.moneyText.Name = "moneyText";
-            this.moneyText.Size = new System.Drawing.Size(121, 20);
-            this.moneyText.TabIndex = 23;
+            this.moneyTextBox.Location = new System.Drawing.Point(350, 211);
+            this.moneyTextBox.Name = "moneyTextBox";
+            this.moneyTextBox.Size = new System.Drawing.Size(121, 20);
+            this.moneyTextBox.TabIndex = 23;
             // 
             // balance
             // 
@@ -146,7 +146,7 @@ namespace GUI_projektIO
             this.Controls.Add(this.back);
             this.Controls.Add(this.transferButton);
             this.Controls.Add(this.confirmation);
-            this.Controls.Add(this.moneyText);
+            this.Controls.Add(this.moneyTextBox);
             this.Controls.Add(this.balance);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.helloLabel);
@@ -161,7 +161,7 @@ namespace GUI_projektIO
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button transferButton;
         private System.Windows.Forms.Label confirmation;
-        private System.Windows.Forms.TextBox moneyText;
+        private System.Windows.Forms.TextBox moneyTextBox;
         private System.Windows.Forms.Label balance;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Label helloLabel;

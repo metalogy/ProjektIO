@@ -29,13 +29,11 @@ namespace GUI_projektIO
             password = passwordText.Text;
             //tutaj łączenie się z bazą danych i logowanie
             var MainMenuForm = new MainMenuForm();
-            //if (Connection.client.Connected)
-                if (true)
+            if (Connection.client.Connected)
                 {
-                int a=Connection.sendLoginCredentials(login, this.password);
+                
 
                 if (Connection.sendLoginCredentials(login, this.password) == 1) //dane logowania poprawne
-                    if (true) //dane logowania poprawne
                     {
                     MainMenuForm.Show();
                     Hide(); //zamknięcie zamiast ukrycia??"?

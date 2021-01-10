@@ -40,6 +40,8 @@ namespace GUI_projektIO
             this.label4 = new System.Windows.Forms.Label();
             this.createButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginLabel
@@ -132,11 +134,32 @@ namespace GUI_projektIO
             this.errorLabel.AutoSize = true;
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
             this.errorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.errorLabel.Location = new System.Drawing.Point(243, 348);
+            this.errorLabel.Location = new System.Drawing.Point(273, 360);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(329, 38);
             this.errorLabel.TabIndex = 42;
             this.errorLabel.Text = "Błąd tworzenia konta!";
+            // 
+            // backButton
+            // 
+            this.backButton.Location = new System.Drawing.Point(367, 312);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(121, 23);
+            this.backButton.TabIndex = 43;
+            this.backButton.Text = "Cofnij";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.infoLabel.ForeColor = System.Drawing.Color.DarkGreen;
+            this.infoLabel.Location = new System.Drawing.Point(119, 79);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(598, 38);
+            this.infoLabel.TabIndex = 44;
+            this.infoLabel.Text = "Pomyślnie utworzono konto, zaloguj się!";
             // 
             // CreateAccountForm
             // 
@@ -144,6 +167,8 @@ namespace GUI_projektIO
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.infoLabel);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.label4);
@@ -175,5 +200,7 @@ namespace GUI_projektIO
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label infoLabel;
     }
 }

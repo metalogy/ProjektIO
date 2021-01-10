@@ -65,7 +65,7 @@ namespace GUI_projektIO
         public static int cashOut(int amount)
         {
             NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("3:{0}", amount); //3:wypłata
+            String credentials = String.Format("3:{0}:", amount); //3:wypłata
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Send cash out request");
@@ -84,7 +84,7 @@ namespace GUI_projektIO
         public static int cashIn(int amount)
         {
             NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("4:{0}", amount); //4:wpłata
+            String credentials = String.Format("4:{0}:", amount); //4:wpłata
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Send cash in request");
@@ -99,12 +99,12 @@ namespace GUI_projektIO
         /// Funkcja odpowiedzialna operację przelewu pomiędzy dwoma klientami.
         /// </summary>
         /// <param name="amount">Liczba pieniędzy do przelania.</param>
-        /// <param name="accountID">Liczba określająca adresata przelewu.</param>
+        /// <param name="login">Login adresata przelewu.</param>
         /// <returns>Wartość określająca poprawność (0-1).</returns>
-        public static int sendCash(int accountID,int amount)
+        public static int sendCash(String login,int amount)
         {
             NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("5:{0}:{1}", accountID, amount); //5-transfer na inne konto 5:konto:suma
+            String credentials = String.Format("5:{0}:{1}:",login, amount); //5-transfer na inne konto 5:konto:suma
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Send cash transfer");
@@ -125,7 +125,7 @@ namespace GUI_projektIO
             String credentials = String.Format("6:"); //6-Żądanie pobrania listy użytkowników kont 
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
-            Console.WriteLine("Send user list request"); /// id i nazwy użytkowników oddzielamy *
+            Console.WriteLine("Send user list request"); /// id i nazwy użytkowników oddzielamy :
             data = new Byte[256];
             Int32 bytes = stream.Read(data, 0, data.Length);
             String responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
@@ -143,51 +143,29 @@ namespace GUI_projektIO
         public static int createAccount(String login, String password, String name, String surname)
         {
             NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("7:{0}:{1}:{2}:{3}",login,password,name,surname); //7-Tworzenie konta
+            String credentials = String.Format("7:{0}:{1}:{2}:{3}:",login,password,name,surname); //7-Tworzenie konta
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
-            Console.WriteLine("Send creating account request"); /// id i nazwy użytkowników oddzielamy *
+            Console.WriteLine("Send creating account request"); 
             data = new Byte[256];
             Int32 bytes = stream.Read(data, 0, data.Length);
             int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
             return responseData;
 
         }
-        /// <summary>
-        /// Funkcja tworząca konto wraz z określonym saldem
-        /// </summary>
-        /// <param name="login">Login użytkownika.</param>
-        /// <param name="password">Hasło użytkownika.</param>
-        ///  <param name="name">Imię użytkownika.</param>
-        ///  <param name="surname">Nazwisko użytkownika.</param>
-        ///   <param name="balance">Saldo użytkownika.</param>
-        /// <returns>Wartość określająca poprawność (0-1).</returns>
-        public static int createAccount(String login, String password, String name, String surname, int balance)
-        {
-            NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("7:{0}:{1}:{2}:{3}", login, password, name, surname); //7-Tworzenie konta
-            Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
-            stream.Write(data, 0, data.Length);
-            Console.WriteLine("Send creating account request"); /// id i nazwy użytkowników oddzielamy *
-            data = new Byte[256];
-            Int32 bytes = stream.Read(data, 0, data.Length);
-            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
-            return responseData;
-
-        }
+       
         /// <summary>
         /// Funkcja usuwająca konto
         /// </summary>
         /// <param name="login">Login użytkownika.</param>
-        /// <param name="password">Hasło użytkownika.</param>
         /// <returns>Wartość określająca poprawność (0-1).</returns>
-        public static int deleteAccount(String login, String password)
+        public static int deleteAccount(String login)
         {
             NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("8:{0}",login,password); //8-Żądanie usunięcia konta 
+            String credentials = String.Format("8:{0}:",login); //8-Żądanie usunięcia konta 
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
-            Console.WriteLine("Send account delete request"); /// id i nazwy użytkowników oddzielamy *
+            Console.WriteLine("Send account delete request"); 
             data = new Byte[256];
             Int32 bytes = stream.Read(data, 0, data.Length);
             int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
@@ -204,10 +182,10 @@ namespace GUI_projektIO
         public static int loginAdmin(String login, String password)
         {
             NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("9:{0}", login, password); //9-Żądanie usunięcia konta 
+            String credentials = String.Format("9:{0}:{1}:", login, password); //9-Żądanie logowania admina
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
-            Console.WriteLine("Send admin login request"); /// id i nazwy użytkowników oddzielamy *
+            Console.WriteLine("Send admin login request"); 
             data = new Byte[256];
             Int32 bytes = stream.Read(data, 0, data.Length);
             int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
@@ -221,14 +199,37 @@ namespace GUI_projektIO
         public static String getInfo(String login)
         {
             NetworkStream stream = Connection.client.GetStream();
-            String credentials = String.Format("10:{0}", login); //10-Żądanie wszystkich danych 
+            String credentials = String.Format("10:{0}:", login); //10-Żądanie wszystkich danych 
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
             stream.Write(data, 0, data.Length);
-            Console.WriteLine("Send all data request"); /// id i nazwy użytkowników oddzielamy *
+            Console.WriteLine("Send all data request"); 
             data = new Byte[256];
             Int32 bytes = stream.Read(data, 0, data.Length);
             String responseData =System.Text.Encoding.ASCII.GetString(data, 0, bytes);
             return responseData;
+        }
+        /// <summary>
+        /// Funkcja tworząca konto wraz z określonym saldem
+        /// </summary>
+        /// <param name="oldLogin">Stary login użytkownika.</param>
+        /// <param name="login">Login użytkownika.</param>
+        /// <param name="password">Hasło użytkownika.</param>
+        ///  <param name="name">Imię użytkownika.</param>
+        ///  <param name="surname">Nazwisko użytkownika.</param>
+        ///   <param name="balance">Saldo użytkownika.</param>
+        /// <returns>Wartość określająca poprawność (0-1).</returns>
+        public static int editAccount(String oldLogin, String login, String password, String name, String surname, int balance)
+        {
+            NetworkStream stream = Connection.client.GetStream();
+            String credentials = String.Format("11:{0}:{1}:{2}:{3}:{4}:{5}:", oldLogin, login, password, name, surname, balance); //11-Edycja konta
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(credentials);
+            stream.Write(data, 0, data.Length);
+            Console.WriteLine("Send creating account request");
+            data = new Byte[256];
+            Int32 bytes = stream.Read(data, 0, data.Length);
+            int responseData = Int32.Parse(System.Text.Encoding.ASCII.GetString(data, 0, bytes));
+            return responseData;
+
         }
 
         #endregion

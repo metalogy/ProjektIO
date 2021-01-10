@@ -51,7 +51,7 @@ namespace GUI_projektIO
             // 
             this.confirmationLabelPassword.AutoSize = true;
             this.confirmationLabelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.confirmationLabelPassword.Location = new System.Drawing.Point(196, 86);
+            this.confirmationLabelPassword.Location = new System.Drawing.Point(196, 98);
             this.confirmationLabelPassword.Name = "confirmationLabelPassword";
             this.confirmationLabelPassword.Size = new System.Drawing.Size(422, 38);
             this.confirmationLabelPassword.TabIndex = 1;

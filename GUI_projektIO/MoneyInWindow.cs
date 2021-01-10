@@ -41,6 +41,7 @@ namespace GUI_projektIO
         {
             Connection.client.Close();
             this.Close();
+            Environment.Exit(1);
         }
 
         private void back_Click(object sender, EventArgs e)

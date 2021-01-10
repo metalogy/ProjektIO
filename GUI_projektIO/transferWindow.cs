@@ -12,14 +12,14 @@ namespace GUI_projektIO
 {
     public partial class transferWindow: Form
     {
-        List<accountStruct> accounts;
-        public transferWindow(List<accountStruct> accounts)
+        List<loginList> accounts;
+        public transferWindow()
         {
-            this.accounts = accounts;
+            accounts = AccountsInformation.getAccounts(Connection.downloadAccounts()); //pobieranie listy loginów do przelewu
             InitializeComponent();
-            foreach(accountStruct user in this.accounts)
+            foreach(loginList user in this.accounts)
             {
-                comboBoxUsers.Items.Add(user.name);
+                comboBoxUsers.Items.Add(user.login);
             }
         }
 
@@ -27,23 +27,44 @@ namespace GUI_projektIO
         {
             Connection.client.Close();
             this.Close();
-        }
+            Environment.Exit(1);
 
+        }
+        private bool isNumeric(String data)
+        {
+            foreach (char c in data)
+            {
+                if (!Char.IsDigit(c))
+                {
+
+                    string message = "Wprowadzono litery!";
+                    string caption = "Error Detected in Input";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result;
+
+                    // Displays the MessageBox.
+                    result = MessageBox.Show(message, caption, buttons);
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        moneyTextBox.Text = "";
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         private void transferButton_Click(object sender, EventArgs e)
         {
-            
-            int m = Int32.Parse(moneyText.Text);
-            String u=comboBoxUsers.Text;  //nie jestem pewien czy działa, może być coś w stylu  int selectedValue = (int)cmb.SelectedValue;
-            int id=0;
-            foreach(accountStruct user in this.accounts)
+            String amount = moneyTextBox.Text;
+            if(!isNumeric(amount))
             {
-                if(user.name==u)
-                {
-                    id = user.ID;
-                    break;
-                }
-            }  
-            if (Connection.sendCash(id,m) == 1)
+                return;
+            }
+            
+            int m = Int32.Parse(moneyTextBox.Text);
+            String user=comboBoxUsers.Text;  
+
+            if (Connection.sendCash(user,m) == 1)
             {
                 var MainMenuForm = new MainMenuForm("Pomyślnie przelano pieniądze");
                 MainMenuForm.Show();

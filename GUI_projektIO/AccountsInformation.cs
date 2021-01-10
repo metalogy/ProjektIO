@@ -9,23 +9,15 @@ namespace GUI_projektIO
     /// <summary>
     /// Struktura opisująca dane konto klienckie. 
     /// </summary>
-    public struct accountStruct
+    public struct loginList
     {
-        /// <summary>
-        /// ID klienta.
-        /// </summary>
-        public int ID;
         /// <summary>
         /// Nazwa klienta.
         /// </summary>
-        public String name;
+        public String login;
     }
     public struct accountStructAll
     {
-        /// <summary>
-        /// ID klienta.
-        /// </summary>
-        public int ID;
         /// <summary>
         /// Imie klienta.
         /// </summary>
@@ -58,16 +50,15 @@ namespace GUI_projektIO
         /// </summary>
         /// <param name="data">Parametr zawierający ciąg z informacjami o wszystkich kontach w odpowiednim formacie.</param>
         /// <returns>Lista obiektów accountStruct.</returns>
-        public static List<accountStruct> getAccounts(String data)
+        public static List<loginList> getAccounts(String data)
         {
-            List<accountStruct> accounts = new List<accountStruct>();
-            String[] users= data.Split('*');
-            accountStruct helper;
-            foreach (String user in users)
+            List<loginList> accounts = new List<loginList>();
+            String[] users = data.Split(':');
+            
+            for(int i=0;i<users.Length-1;i++)
             {
-                String[] organiser = user.Split(':');
-                helper.ID = Int32.Parse(organiser[0]);//id
-                helper.name = organiser[1];//nazwa użytkownika
+                loginList helper = new loginList();
+                helper.login =users[i];//login
                 accounts.Add(helper);
 
             }
@@ -84,12 +75,11 @@ namespace GUI_projektIO
 
             accountStructAll user;
             String[] organiser = data.Split(':');
-            user.ID = Int32.Parse(organiser[0]);//id
-            user.name = organiser[1];//imie użytkownika
-            user.surname = organiser[2];//nazwisko użytkownika
-            user.login = organiser[3];//login użytkownika
-            user.password = organiser[4];//hasło użytkownika
-            user.balance = Int32.Parse(organiser[5]);//saldo
+            user.name = organiser[2];//imie użytkownika
+            user.surname = organiser[3];//nazwisko użytkownika
+            user.login = organiser[0];//login użytkownika 
+            user.password = organiser[1];//hasło użytkownika
+            user.balance = Int32.Parse(organiser[4]);//saldo
             return user;
 
         }

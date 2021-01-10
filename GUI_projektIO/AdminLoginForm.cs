@@ -24,11 +24,11 @@ namespace GUI_projektIO
         {
             String login = loginText.Text;
             String password = passwordText.Text;
-            //if (Connection.client.Connected)
+            if (Connection.client.Connected)
             if (true)
             {
-               // if (Connection.loginAdmin(login, password) == 1) //dane logowania poprawne
-                    if (login=="admin") //dane logowania poprawne
+                if (Connection.loginAdmin(login, password) == 1) //dane logowania poprawne
+                    //if (login=="admin") //dane logowania poprawne
                     {
                     var AdminPanel = new AdminPanel();
                     AdminPanel.Show();
@@ -57,6 +57,7 @@ namespace GUI_projektIO
         {
             Connection.client.Close();
             this.Close();
+            Environment.Exit(1);
         }
     
     }

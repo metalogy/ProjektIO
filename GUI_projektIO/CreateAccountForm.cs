@@ -12,24 +12,23 @@ namespace GUI_projektIO
 {
     public partial class CreateAccountForm : Form
     {
-        public static String login;
         public CreateAccountForm()
         {
 
             InitializeComponent();
             errorLabel.Hide();
+            infoLabel.Hide();
         }
 
         private async void createButton_Click(object sender, EventArgs e)
         {
-            if (Connection.createAccount(nameTextBox.Text, surnameTextBox.Text,loginTextBox.Text, passwordTextBox.Text) == 1)
-               // if(nameTextBox.Text == "xd")
+            if (Connection.createAccount(nameTextBox.Text, surnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text) == 1)
             {
-                login = loginTextBox.Text;
-                var MainMenuForm = new MainMenuForm(login, passwordTextBox.Text); //dla rozróżnienia konstruktorów :v
-                MainMenuForm.Show();
+                infoLabel.Show();
+                await Task.Delay(2000);
                 this.Close();
-
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
             }
             else
             {
@@ -40,6 +39,12 @@ namespace GUI_projektIO
                 Environment.Exit(1); //zamyka wszystkie aktywne "w tle" formularze
 
             }
+        }
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
