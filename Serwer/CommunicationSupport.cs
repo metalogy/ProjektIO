@@ -52,6 +52,42 @@ namespace Serwer
                     BankServerAPM.db.EditBalance(this.login, (1 * Int32.Parse(components[1])));
                     feedback = "1";
                     return feedback;
+                case "5":
+                    try
+                    {
+                        BankServerAPM.db.TransferMoney(this.login, components[1], Int32.Parse(components[2]));
+                    }catch(Exception e)
+                    {
+                        feedback = "0";
+                        return feedback;
+                    }
+                    feedback = "1";
+                    return feedback;
+                case "7":
+                    try
+                    {
+                        BankServerAPM.db.AddEntry(components[1], components[2], 0);
+                    }
+                    catch (Exception e)
+                    {
+                        feedback = "0";
+                        return feedback;
+                    }
+                    feedback = "1";
+                    return feedback;
+                case "8":
+                    try
+                    {
+                        BankServerAPM.db.DeleteEntry(this.login);
+                        this.login = "";
+                    }
+                    catch (Exception e)
+                    {
+                        feedback = "0";
+                        return feedback;
+                    }
+                    feedback = "1";
+                    return feedback;
                 default:
                     feedback = "Error";
                     return feedback;
