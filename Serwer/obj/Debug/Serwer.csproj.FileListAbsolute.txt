@@ -1,0 +1,14 @@
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\bin\Debug\Serwer.dll.config
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\bin\Debug\Serwer.dll
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\bin\Debug\Serwer.pdb
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\obj\Debug\Serwer.csproj.CoreCompileInputs.cache
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\obj\Debug\Serwer.dll
+C:\Users\banas\Source\Repos\metalogy\ProjektIO\Serwer\obj\Debug\Serwer.pdb
+C:\Users\banas\source\repos\metalogy\ProjektIO\Serwer\obj\Debug\Serwer.csprojAssemblyReference.cache
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Serwer\bin\Debug\Serwer.dll.config
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Serwer\bin\Debug\Serwer.dll
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Serwer\bin\Debug\Serwer.pdb
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Serwer\obj\Debug\Serwer.csprojAssemblyReference.cache
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Serwer\obj\Debug\Serwer.csproj.CoreCompileInputs.cache
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Serwer\obj\Debug\Serwer.dll
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Serwer\obj\Debug\Serwer.pdb

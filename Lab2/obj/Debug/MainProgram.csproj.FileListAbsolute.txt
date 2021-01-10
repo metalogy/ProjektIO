@@ -1,0 +1,11 @@
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\bin\Debug\MainProgram.exe.config
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\bin\Debug\MainProgram.exe
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\bin\Debug\MainProgram.pdb
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\bin\Debug\Serwer.dll
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\bin\Debug\Serwer.pdb
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\bin\Debug\Serwer.dll.config
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\obj\Debug\MainProgram.csprojAssemblyReference.cache
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\obj\Debug\MainProgram.csproj.CoreCompileInputs.cache
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\obj\Debug\MainProgram.csproj.CopyComplete
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\obj\Debug\MainProgram.exe
+C:\Users\metal\Downloads\ProjektIO-Iteracja3\ProjektIO-Iteracja3\Lab2\obj\Debug\MainProgram.pdb
