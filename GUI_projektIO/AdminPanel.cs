@@ -10,10 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI_projektIO
 {
+    /// <summary>
+    /// Klasa będąca panelem administracyjnym
+    /// </summary>
     public partial class AdminPanel : Form
     {
         protected List<loginList> accounts;
-        
+
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public AdminPanel()
         {
             InitializeComponent();
@@ -22,6 +28,9 @@ namespace GUI_projektIO
             updateCombo();
            
         }
+        /// <summary>
+        /// Funkcja pobierająca dostępne konta i umieszczająca je w comboboxie
+        /// </summary>
         private void updateCombo()
         {
             comboBoxUsers.Items.Clear();
@@ -31,6 +40,9 @@ namespace GUI_projektIO
                 comboBoxUsers.Items.Add(user.login);
             }
         }
+        /// <summary>
+        /// Funkcja wyłączająca aplikację
+        /// </summary>
         private void exit_Click(object sender, EventArgs e)
         {
             Connection.client.Close();
@@ -38,6 +50,9 @@ namespace GUI_projektIO
             Environment.Exit(1);
         }
 
+        /// <summary>
+        /// Funkcja usuwająca konto z banku
+        /// </summary>
         private void deleteAccount_Click(object sender, EventArgs e)
         {
             String a = comboBoxUsers.Text;
@@ -53,6 +68,9 @@ namespace GUI_projektIO
             }
             updateCombo();
         }
+        /// <summary>
+        /// Funkcja czyszcząca pola textowe
+        /// </summary>
         private void clearTextboxes()
         {
             nameTextBox.Text=String.Empty;
@@ -61,6 +79,12 @@ namespace GUI_projektIO
             passwordTextBox.Text = String.Empty;
             balanceTextBox.Text = String.Empty;
         }
+        /// <summary>
+        /// Funkcja sprawdzająca czy dane są numeryczne
+        /// </summary>
+        /// <returns>
+        /// Prawda lub fałsz w zależności czy dane są numeryczne
+        /// </returns>
         private bool isNumeric(String data)
         {
             foreach (char c in data)
@@ -84,6 +108,9 @@ namespace GUI_projektIO
             }
             return true;
         }
+        /// <summary>
+        /// Funkcja wyświetlająca potweirdzenie
+        /// </summary>
         private void confirmationFunc(Label label)
         {
             label.Show();
@@ -97,7 +124,9 @@ namespace GUI_projektIO
             t.Start();
 
         }
-
+        /// <summary>
+        /// Funkcja ładujące dane
+        /// </summary>
         private void loadDataButton_Click(object sender, EventArgs e)
         {
             accountStructAll user=AccountsInformation.getAllData(Connection.getInfo((String)comboBoxUsers.Text)); //trzeba sprawdzić czy działa
@@ -107,7 +136,9 @@ namespace GUI_projektIO
             passwordTextBox.Text = user.password;
             balanceTextBox.Text = user.balance.ToString();
         }
-
+        /// <summary>
+        /// Funkcja edytująca dane klienta
+        /// </summary>
         private void editDataButton_Click(object sender, EventArgs e)
         {
             String amount = balanceTextBox.Text;

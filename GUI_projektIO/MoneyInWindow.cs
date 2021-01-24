@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI_projektIO
-{
+{   /// <summary>
+    /// Klasa wpłąty pieniędzy
+    /// </summary>
     public partial class MoneyInWindow : Form
     {
         public MoneyInWindow()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Funkcja wpłaty
+        /// </summary>
         private void actionInButton_Click(object sender, EventArgs e)
         {
             int m = Int32.Parse(moneyText.Text);
@@ -36,14 +40,18 @@ namespace GUI_projektIO
                 MainMenuForm.Show();
             }
         }
-
+        /// <summary>
+        /// Funkcja wyjścia z aplikacji
+        /// </summary>
         private void exit_Click(object sender, EventArgs e)
         {
             Connection.client.Close();
             this.Close();
             Environment.Exit(1);
         }
-
+        /// <summary>
+        /// Funkcja powrotu do menu głównego
+        /// </summary>
         private void back_Click(object sender, EventArgs e)
         {
             var MainMenuForm = new MainMenuForm();

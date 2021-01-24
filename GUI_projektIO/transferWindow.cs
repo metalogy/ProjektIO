@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_projektIO
 {
+    /// <summary>
+    /// Klasa formularza przelewów
+    /// </summary>
     public partial class transferWindow: Form
     {
         List<loginList> accounts;
@@ -22,7 +25,9 @@ namespace GUI_projektIO
                 comboBoxUsers.Items.Add(user.login);
             }
         }
-
+        /// <summary>
+        /// Funkcja do wyjścia z aplikacji
+        /// </summary>
         private void exit_Click(object sender, EventArgs e)
         {
             Connection.client.Close();
@@ -30,6 +35,9 @@ namespace GUI_projektIO
             Environment.Exit(1);
 
         }
+        /// <summary>
+        /// Funkcja sprawdzająca czy string zawiera tylko cyfry
+        /// </summary>
         private bool isNumeric(String data)
         {
             foreach (char c in data)
@@ -53,6 +61,9 @@ namespace GUI_projektIO
             }
             return true;
         }
+        /// <summary>
+        /// Funkcja przelewu
+        /// </summary>
         private void transferButton_Click(object sender, EventArgs e)
         {
             String amount = moneyTextBox.Text;
@@ -82,6 +93,9 @@ namespace GUI_projektIO
 
         }
 
+        /// <summary>
+        /// Funkcja powrotu do menu głównego
+        /// </summary>
         private void back_Click(object sender, EventArgs e)
         {
             var MainMenuForm = new MainMenuForm();

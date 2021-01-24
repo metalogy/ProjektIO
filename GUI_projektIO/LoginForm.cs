@@ -11,7 +11,9 @@ using System.Windows.Forms;
 using System.Net.Sockets;
 using System.IO;
 namespace GUI_projektIO
-{
+{       /// <summary>
+        /// Klasa będąca formularzem logowania
+        /// </summary>
     public partial class LoginForm : Form
     {
         public static String login;
@@ -22,7 +24,9 @@ namespace GUI_projektIO
             InitializeComponent();
             failedLogin.Hide();
         }
-
+        /// <summary>
+        /// Funkcja logowania
+        /// </summary>
         private void loginButton_Click(object sender, EventArgs e)
         {
             login = loginText.Text;
@@ -57,20 +61,26 @@ namespace GUI_projektIO
             }
 
         }
-
+        /// <summary>
+        /// Funkcja wychodząca z aplikacji
+        /// </summary>
         private void exitButton_Click(object sender, EventArgs e)
         {
             Connection.client.Close();
             this.Close();
         }
-
+        /// <summary>
+        /// Funkcja przechodząca do formularza tworzenia konta
+        /// </summary>
         private void createAccountButton_Click(object sender, EventArgs e)
         {
             var CreateAccountForm = new CreateAccountForm();
             CreateAccountForm.Show();
             Hide();
         }
-
+        /// <summary>
+        /// Funkcja przechodząca do panelu administracyjnego
+        /// </summary>
         private void adminLoginButton_Click(object sender, EventArgs e)
         {
             var AdminLoginForm = new AdminLoginForm();

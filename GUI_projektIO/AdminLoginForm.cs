@@ -10,16 +10,24 @@ using System.Windows.Forms;
 
 namespace GUI_projektIO
 {
+    /// <summary>
+    /// Klasa będąca formularzem logowania do panelu administracyjnego
+    /// </summary>
     public partial class AdminLoginForm : Form
     {
         private static String login;
         private String password;
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public AdminLoginForm()
         {
             InitializeComponent();
             failedLogin.Hide();
         }
-
+        /// <summary>
+        /// Funkcja logowania 
+        /// </summary>
         private void loginButton_Click(object sender, EventArgs e)
         {
             String login = loginText.Text;
@@ -53,6 +61,9 @@ namespace GUI_projektIO
             }
         }
 
+        /// <summary>
+        /// Funkcja wyjścia z aplikacji 
+        /// </summary>
         private void exitButton_Click(object sender, EventArgs e)
         {
             Connection.client.Close();

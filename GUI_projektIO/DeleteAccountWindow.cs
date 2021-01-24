@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_projektIO
 {
+    /// <summary>
+    /// Klasa usuwająca konto 
+    /// </summary>
     public partial class DeleteAccountWindow : Form
     {
         String login;
@@ -20,6 +23,9 @@ namespace GUI_projektIO
             confirmation.Hide();
         }
 
+        /// <summary>
+        /// Funkcja usuwająca konto 
+        /// </summary>
         private async void deleteButton_Click(object sender, EventArgs e)
         {
             String password = passwordText.Text;
@@ -48,6 +54,9 @@ namespace GUI_projektIO
             }
         }
 
+        /// <summary>
+        /// Klasa będąca głównym menu 
+        /// </summary>
         private void cancelButton_Click(object sender, EventArgs e)
         {
             var MainMenuForm = new MainMenuForm();
@@ -55,7 +64,10 @@ namespace GUI_projektIO
             this.Close();
 
         }
-         private void confirmationFunc()
+        /// <summary>
+        /// Funkcja wyświetlająca powiadmonienie
+        /// </summary>
+        private void confirmationFunc()
             {
                 confirmation.Show();
                 var t = new Timer();

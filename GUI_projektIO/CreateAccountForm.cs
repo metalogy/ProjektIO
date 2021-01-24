@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI_projektIO
-{
+{       /// <summary>
+        /// Klasa tworząca konto
+        /// </summary>
     public partial class CreateAccountForm : Form
     {
         public CreateAccountForm()
@@ -20,6 +22,9 @@ namespace GUI_projektIO
             infoLabel.Hide();
         }
 
+        /// <summary>
+        /// Funkcja tworząca konto 
+        /// </summary>
         private async void createButton_Click(object sender, EventArgs e)
         {
             if (Connection.createAccount(nameTextBox.Text, surnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text) == 1)
@@ -40,6 +45,9 @@ namespace GUI_projektIO
 
             }
         }
+        /// <summary>
+        /// Funkcja wyłączająca aplikację
+        /// </summary>
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Close();
